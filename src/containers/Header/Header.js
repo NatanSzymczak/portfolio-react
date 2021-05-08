@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import MenuButton from './components/MenuButton/MenuButton'
+import MenuButton from './components/MenuButton/MenuButton';
+import {pages} from '../../constants/pages';
 import '../Header/styles/header.less'
 
 export default class Header extends Component {
@@ -7,9 +8,11 @@ export default class Header extends Component {
       return (
          <div className="main-header">
             <ul className="main-header-menu">
-               <MenuButton isActive={true} >Portfolio</MenuButton>
-               <MenuButton>About</MenuButton>
-               <MenuButton>Contact</MenuButton>
+               {pages.map((page, index) => {
+                  return (
+                     <MenuButton key={index} href={page.url}>{page.label}</MenuButton>
+                  )
+               })}
             </ul>
          </div>
       );
