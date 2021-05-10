@@ -1,24 +1,25 @@
 import React, {Component} from 'react';
 import classnames from 'classnames';
-import {Link, withRouter} from 'react-router-dom';
 import './styles/menuButton.less';
 
-class MenuButton extends Component {
+export default class MenuButton extends Component {
+   
+   goToPage = () => {
+      const {navigateTo, href} = this.props;
+      navigateTo(href);
+   }
+
    render() {
-      const {children, href, location} = this.props;
-      const isActive = location.pathname === href; 
+      const {children, href, activePage} = this.props;
+      const isActive = activePage === href; 
       const className = classnames('menu-button', {
          'menu-button-active': isActive
       });
       
       return (
-         <li className = {className}>
-            <Link to={href}>
-               {children}
-            </Link>
+         <li className = {className} onClick={this.goToPage}>
+            {children}
          </li>
       );
    }
 }
-
-export default withRouter(MenuButton);
