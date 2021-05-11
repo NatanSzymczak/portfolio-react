@@ -1,0 +1,26 @@
+@import '../../../styles/variables.less';
+
+.form-field {
+   margin-bottom: 15px;
+   position: relative;
+   padding-top: 23px;
+
+   &-label {
+      font-size: @smallFontSize;
+      position: absolute;
+      top: 0;
+      left: 0;
+      color: @mainTextColor;
+      transition: top @animationFastTime ease-in-out,
+                  left @animationFastTime ease-in-out,
+                  font-size @animationFastTime linear,
+                  color @animationSlowTime linear;
+
+      &-empty {
+         top: 32px;
+         left: 10px;
+         font-size: @formFontSize;
+         color: @colorDisable;
+      }
+   }
+}

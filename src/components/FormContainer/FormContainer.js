@@ -7,7 +7,7 @@ export default class FormContainer extends PureComponent {
       const {children} = this.props;
 
       return (
-         <form className='form-container'>
+         <form className="form-container">
             {children}
          </form>
       );

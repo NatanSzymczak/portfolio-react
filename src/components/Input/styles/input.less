@@ -1,7 +1,17 @@
 @import '../../../styles/variables.less';
 
-.form-container {
+.form-input {
    width: 100%;
-   max-width: 600px;
-   margin-bottom: 30px;
+   height: @formElementHeight;
+   line-height: @mainLineHeight;
+   font-size: @formFontSize;
+   color: @mainTextColor;
+   padding: 0 10px;
+   border: 1px solid @formBorderColor;
+   border-radius: @formBorderRadius;
+   transition: border @animationFastTime linear;
+
+   &:focus {
+      border: 1px solid @formBorderActiveColor;
+   }
 }
