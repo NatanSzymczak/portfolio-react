@@ -1,11 +1,5 @@
-import {combineReducers, createStore, applyMiddleware, compose} from 'redux';
-import rootReducer from '../reducers/rootReducer';
-
-const mainStore = combineReducers(
-   {
-      root: rootReducer,
-   }
-)
+import {createStore, applyMiddleware, compose} from 'redux';
+import mainStore from '../reducers';
 
 const middlewares = [];
 

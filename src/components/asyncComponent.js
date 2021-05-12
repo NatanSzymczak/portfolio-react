@@ -1,4 +1,6 @@
 import React, {PureComponent} from 'react';
+import store from '../store';
+import {extendReducers} from '../reducers';
 
 export const asyncComponent = (importComponent) => {
    return class extends PureComponent {
@@ -6,7 +8,11 @@ export const asyncComponent = (importComponent) => {
 
       componentDidMount(){
          importComponent()
-            .then(c => {this.setState({component: c.default})})
+            .then(c => {
+               const {component, reducer, name} = c.default;
+               extendReducers(store, reducer, name);
+               return this.setState({component})
+            })
       }
       render(){
          const {component: Component} = this.state;
