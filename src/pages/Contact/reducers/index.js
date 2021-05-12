@@ -1,8 +1,20 @@
+import * as actionType from '../constants/actionTypes';
+
 const initialState = {
-   userName: '',
-   userEmail: '',
+   name: '',
+   email: '',
+   message: '',
 }
 
 export default function contactReducer(state = initialState, action){
+   if(action){
+      switch(action.type){
+         case actionType.CHANGE_FORM:
+            return {
+               ...state,
+               [action.fieldName]: action.value,
+            }
+      }
+   }
    return state;
 };

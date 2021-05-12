@@ -3,23 +3,15 @@ import Page from '../../components/Page/Page';
 import Paragraf from '../../components/Paragraf/Paragraf';
 import FormContainer from '../../components/FormContainer/FormContainer';
 import Input from '../../components/Input/Input';
+import Textarea from '../../components/Textarea/Textarea';
+import Button from '../../components/Button/Button';
+import ButtonContainer from '../../components/ButtonContainer/ButtonContainer';
 import FormField from '../../components/FormField/FormField';
 
 export default class ContactComponent extends PureComponent {
-   constructor(){
-      super();
-      this.state = {
-         userName: '',
-         userEmail: '',
-      };
-   }
-
-   onInputChage = (value, name) => {
-      this.setState({[name]: value});
-   }
    
    render() {
-      const {userName, userEmail} = this.state;
+      const {userName, userEmail, userMessage, changeForm} = this.props;
       return (
          <Page title="Contact">
             <Paragraf>
@@ -29,17 +21,27 @@ export default class ContactComponent extends PureComponent {
                <FormField label="First Name" isEmpty={userName.length === 0}>
                   <Input 
                      value={userName}
-                     onChange={this.onInputChage}
-                     name="userName"
+                     onChange={changeForm}
+                     name="name"
                   />
                </FormField>
                <FormField label="Email Address" isEmpty={userEmail.length === 0}>
                   <Input 
                      value={userEmail}
-                     onChange={this.onInputChage}
-                     name="userEmail"
+                     onChange={changeForm}
+                     name="email"
                   />
                </FormField>
+               <FormField label="Message" isEmpty={userMessage.length === 0}>
+                  <Textarea 
+                     value={userMessage}
+                     onChange={changeForm}
+                     name="message"
+                  />
+               </FormField>
+               <ButtonContainer>
+                  <Button>Send</Button>
+               </ButtonContainer>
             </FormContainer>
          </Page>
       );
