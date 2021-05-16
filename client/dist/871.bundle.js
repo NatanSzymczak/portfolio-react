@@ -1,0 +1,1 @@
+(self.webpackChunkportfolio=self.webpackChunkportfolio||[]).push([[871],{871:(e,t,u)=>{"use strict";function n(e){return e.view.contact}function o(e,t){return n(e)[t]||""}function c(e,t){return n(e).touchedFields}u.r(t),u.d(t,{getFieldValue:()=>o,getFieldTouchedState:()=>c})}}]);
